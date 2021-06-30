@@ -1,0 +1,78 @@
+version: 2
+
+models:
+  - name: google_analytics__session_hits
+    description: Table for hit (event) level data from Google Analytics
+    columns:
+      - name: VISIT_ID
+        description: An identifier for this session. Can apply to multiple sessions that are split over midnight by Google Analytics logic
+      - name: FULL_VISITOR_ID
+        description: The unique visitor ID
+      - name: VISIT_START_TIME
+        description: The timestamp expressed as POSIX time.
+      - name: HIT_NUMBER
+        description: The sequenced hit number. For the first hit of each session, this is set to 1. When the session is split over midnight, the hit number is not reset
+      - name: HIT_TYPE
+        description: The type of hit e.g. page view or event
+      - name: SECONDS_SINCE_SESSION_START
+        description:  The number of milliseconds after the VISIT_START_AT when this hit was registered. The first hit has a hits.time of 0
+      - name: HOUR
+        description: The hour in which the hit occurred. This value can be 0 to 23
+      - name: MINUTE
+        description: The minute in which the hit occurred. this value can be from 0 to 59
+      - name: IS_INTERACTION
+        description: If this hit was an interaction, this is set to true. If this was a non-interaction hit (i.e., an event with interaction set to false in Google Tag Manager), this is false. E.g. an interaction is typically something triggered by the customer
+      - name: IS_ENTRANCE
+        description: If this hit was the first pageview or screenview hit of a session, this is set to true
+      - name: IS_EXIT
+        description: If this hit was the last pageview or screenview hit of a session, this is set to true
+      - name: DATA_SOURCE
+        description: The data source of a hit. By default, hits sent from analytics.js are reported as web and hits sent from the mobile SDKs are reported as app
+      - name: EXPERIMENT
+        description: This row and the nested fields are populated for each hit that contains data for an experiment
+      - name: PRODUCT
+        description: A nested field containing Enhanced Ecommerce PRODUCT data. E.g. product information about an add to basket event or a full list of products on a basket view
+      - name: APP_INFO
+        description: A nested field containing information about the app the hit was sent from
+      - name: CONTENT_GROUP
+        description: This section contains information about content grouping.
+      - name: CONTENT_INFO
+        description:  This section will be populated for each hit with type = APPVIEW.
+      - name: ECOMMERCE_ACTION_TYPE
+        description: The action type setup in Google Analytics
+      - name: ECOMMERCE_ACTION_STEP
+        description:  This field is populated when a checkout step is specified with the hit
+      - name: EVENT_ACTION
+        description: The event action e.g. add to basket
+      - name: EVENT_CATEGORY
+        description: The event category
+      - name: EVENT_LABEL
+        description: The event label
+      - name: EVENT_VALUE
+        description: The event value
+      - name: PAGE_HOSTNAME
+        description: The hostname of the URL
+      - name: PAGE_URL_PATH
+        description: The URL path of the page
+      - name: PAGE_URL_PATH_LEVEL_1
+        description: This dimension rolls up all the page paths in the 1st hierarchical level in PAGE_URL_PATH
+      - name: PAGE_URL_PATH_LEVEL_2
+        description: This dimension rolls up all the page paths in the 2nd hierarchical level in PAGE_URL_PATH
+      - name: PAGE_URL_PATH_LEVEL_3
+        description: This dimension rolls up all the page paths in the 3d hierarchical level in PAGE_URL_PATH
+      - name: PAGE_URL_PATH_LEVEL_4
+        description: This dimension rolls up all the page paths into hierarchical levels. Up to 4 PAGE_URL_PATH levels may be specified. All additional levels in the pagePath hierarchy are also rolled up in this dimension
+      - name: PAGE_TITLE
+        description: The page title
+      - name: SEARCH_CATEGORY_FOR_PAGE
+        description: If this was a search-results page, this is the category selected
+      - name: SEARCH_TERM_FOR_PAGE
+        description: If this was a search results page, this is the keyword entered
+      - name: TRANSACTION_ID
+        description: The transaction ID of the ecommerce transaction. Maps to the order ID in the HCL system
+      - name: PAGE_LOAD_TIME
+        description: Total time (in milliseconds), from pageview initiation (e.g., a click on a page link) to page load completion in the browser, the pages in the sample set take to load
+      - name: SERVER_RESPONSE_TIME
+        description: The total time (in milliseconds) the site's server takes to respond to users' requests among all samples; this includes the network time from users' locations to the server
+      - name: DOM_CONTENT_LOADED_TIME
+        description: The time (in milliseconds), including the network time from users' locations to the site's server, the browser takes to parse the document and execute deferred and parser-inserted scripts (DOMContentLoaded)

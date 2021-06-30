@@ -1,0 +1,90 @@
+version: 2
+
+models:
+  - name: google_analytics__sessions
+    description: Table for session level data from Google Analytics
+    columns:
+      - name: FULL_VISITOR_ID
+        description: The unique visitor ID
+      - name: CLIENT_ID
+        description: Unhashed version of the Client ID for a given user associated with any given visit/session
+      - name: VISIT_ID
+        description: An identifier for this session. Can apply to multiple sessions that are split over midnight
+      - name: USER_ID
+        description: Internal user ID
+      - name: VISIT_NUMBER
+        description: The nth session for this visitor
+      - name: SESSION_START_TIME
+        description: The session start timestamp expressed as POSIX time
+      - name: SESSION_START_AT
+        description: The session start timestamp
+      - name: CHANNEL_GROUPING
+        description: The Default Channel Group associated with an end user’s session for this View
+      - name: TOTAL_BOUNCES
+        description: Total number of bounces for the session
+      - name: IS_SESSION_BOUNCE
+        description: The session bounced
+      - name: TOTAL_HITS
+        description: Total number of hits within the session
+      - name: TOTAL_PAGE_VIEWS
+        description: Total number of pageviews within the session
+      - name: SESSION_QUALITY_SCORE
+        description: An estimate of how close a particular session was to transacting, ranging from 1 to 100, calculated for each session. A value of 0 indicates that Session Quality is not calculated for the selected time range
+      - name: TIME_ON_SITE
+        description: Total time of the session expressed in seconds
+      - name: TOTAL_TRANSACTION_REVENUE
+        description: Total transaction revenue, expressed as the value passed to Analytics multiplied by 10^6
+      - name: TOTAL_TRANSACTIONS
+        description: Total number of ecommerce transactions within the session
+      - name: MARKETING_AD_CONTENT
+        description: For manual campaign tracking, it is the value of the utm_content campaign tracking parameter. For AdWords autotagging, it is the first line of the text for the online Ad campaign. If you use mad libs for the AdWords content, it contains the keywords you provided for the mad libs keyword match. If you use none of the above, its value is (not set).
+      - name: MARKETING_CAMPAIGN
+        description: The campaign value of the traffic source
+      - name: IS_TRUE_DIRECT
+        description: TRUE if the source of the session was Direct. This field will also be TRUE if two successive but distinct sessions have exactly the same campaign details. Otherwise NULL
+      - name: MARKETING_KEYWORD
+        description: The keyword value of the traffic source
+      - name: MARKETING_MEDIUM
+        description: The medium value of the traffic source
+      - name: REFERRAL_PATH
+        description: If trafficSource.medium is referral, then this is set to the path/url of the referrer
+      - name: MARKETING_SOURCE
+        description: The source value of the traffic source
+      - name: BROWSER
+        description: The browser used
+      - name: BROWSER_SIZE
+        description: The viewport size of users’ browsers
+      - name: BROWSER_VERSION
+        description: The version of the browser used
+      - name: DEVICE_CATEGORY
+        description: The type of device
+      - name: DEVICE_FLASH_VERSION
+        description: The version of the Adobe Flash plugin that is installed on the browser
+      - name: DEVICE_JAVA_ENABLED
+        description: Whether or not Java is enabled in the browser
+      - name: DEVICE_LANGUAGE
+        description: The language the device is set to use expressed as the IETF language code
+      - name: MOBILE_DEVICE_BRANDING
+        description: The brand or manufacturer of the device
+      - name: MOBILE_DEVICE_INFO
+        description: The branding, model, and marketing name used to identify the mobile device
+      - name: MOBILE_DEVICE_MARKETING_NAME
+        description: The marketing name used for the mobile device
+      - name: MOBILE_DEVICE_MODEL
+        description: The mobile device model
+      - name: MOBILE_INPUT_SELECTOR
+        description: Selector (e.g., touchscreen, joystick, clickwheel, stylus) used on the mobile device
+      - name: OPERATING_SYSTEM
+        description: The operating system of the device
+      - name: OPERATING_SYSTEM_VERSION
+        description: The version of the operating system
+      - name: SCREEN_COLORS
+        description: Number of colors supported by the display, expressed as the bit-depth
+      - name: SCREEN_RESOLUTION
+        description: The resolution of the device’s screen expressed in pixel width x height
+      - name: GEONETWORK_CITY
+        description: Users’ city, derived from their IP addresses or Geographical IDs
+      - name: GEONETWORK_CONTINENT
+        description: The continent from which sessions originated, based on IP address
+      - name: GEONETWORK_COUNTRY
+        description: The country from which sessions originated, based on IP address

@@ -40,7 +40,7 @@ final AS (
     SOURCEPROPERTYINFO  AS SOURCE_PROPERTY_INFO,
     TIME,
     TRANSACTION,
-    TYPE
+    TYPE                AS HIT_TYPE
   FROM
     base
 )

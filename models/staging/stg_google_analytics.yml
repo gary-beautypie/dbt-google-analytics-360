@@ -76,7 +76,7 @@ models:
       - name: APP_INFO
         description: This section will be populated for each hit with type = APPVIEW or EXCEPTION.
       - name: CONTENT_GROUP
-        description: This section contains information about content grouping. For more information about content groups, click here.
+        description: This section contains information about content grouping.
         tests:
           - not_null
       - name: CONTENT_INFO
@@ -149,5 +149,5 @@ models:
           - not_null
       - name: TRANSACTION
         description: This section is populated for each hit with type = TRANSACTION.
-      - name: TYPE
+      - name: HIT_TYPE
         description: The type of hit.
