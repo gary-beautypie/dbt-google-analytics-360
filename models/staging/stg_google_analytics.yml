@@ -1,0 +1,153 @@
+version: 2
+
+models:
+  - name: stg_google_analytics__sessions
+    description: >
+      A session is a group of user interactions with your website that take
+      place within a given time frame. For example a single session can
+      contain multiple page views, events, social interactions, and
+      e-commerce transactions.
+      <a href="https://support.google.com/analytics/answer/2731565?hl=en">
+      Google Definition - Session Docs</a>
+    columns:
+      - name: FULL_VISITOR_ID
+        description: The unique visitor ID - also known as client ID.
+        tests:
+          - not_null
+      - name: VISIT_ID
+        description: An identifier for this session.
+        tests:
+          - not_null
+      - name: VISIT_START_TIME
+        description: The timestamp expressed as POSIX time.
+        tests:
+          - not_null
+      - name: SESSION_DATE
+        description: The date of the session in YYYYMMDD format. For more details about the replication process, refer to the Replication section.
+      - name: CHANNEL_GROUPING
+        description: The Default Channel Group associated with an end user’s session for this View.
+        tests:
+          - not_null
+      - name: CLIENT_ID
+        description: Unhashed version of the Client ID for a given user associated with any given visit/session.
+        tests:
+          - not_null
+      - name: CUSTOM_DIMENSIONS
+        description: This section contains any user-level or session-level custom dimensions that are set for a session. This is a repeated field and has an entry for each dimension that is set.
+      - name: DEVICE
+        description: This section contains information about the user devices.
+      - name: GEO_NETWORK
+        description: This section contains information about the geography of the user.
+      - name: SOCIAL_ENGAGEMENT_TYPE
+        description: Engagement type, either Socially Engaged or Not Socially Engaged.
+      - name: TOTALS
+        description: This section contains aggregate values across the session.
+      - name: TRAFFIC_SOURCE
+        description: This section contains information about the traffic source from which the session originated.
+      - name: USER_ID
+        description: Overridden User ID sent to Analytics.
+      - name: VISIT_NUMBER
+        description: The session number for this user.
+        tests:
+          - not_null
+      - name: VISITOR_ID
+        description: Note- This field is deprecated. Use fullVisitorId instead.
+
+  - name: stg_google_analytics__session_hits
+    description: >
+      An interaction that results in data being sent to Google Analytics.
+      Common hit types include page tracking hits, event tracking hits,
+      and e-commerce hits.
+      <a href="https://support.google.com/analytics/answer/6086082?hl=en">
+      Google Definition - Hit Docs</a>
+    columns:
+      - name: VISIT_ID
+        description: An identifier for this session.
+        tests:
+          - not_null
+      - name: FULL_VISITOR_ID
+        description: The unique visitor ID - also known as client ID.
+      - name: VISIT_START_TIME
+        description: The timestamp expressed as POSIX time.
+      - name: HIT_NUMBER
+        description: The sequenced hit number. For the first hit of each session, this is set to 1.
+        tests:
+          - not_null
+      - name: APP_INFO
+        description: This section will be populated for each hit with type = APPVIEW or EXCEPTION.
+      - name: CONTENT_GROUP
+        description: This section contains information about content grouping. For more information about content groups, click here.
+        tests:
+          - not_null
+      - name: CONTENT_INFO
+        description: This section will be populated for each hit with type = APPVIEW.
+      - name: CUSTOM_DIMENSIONS
+        description: This section contains any user-level or session-level custom dimensions that are set for a session. This is a repeated field and has an entry for each dimension that is set.
+      - name: CUSTOM_METRICS
+        description: This section contains any hit-level custom metrics. This is a repeated field and has an entry for each metric that is set.
+      - name: CUSTOM_VARIABLES
+        description: This section contains any hit-level custom variables. This is a repeated field and has an entry for each variable that is set.
+      - name: DATA_SOURCE
+        description: The data source of a hit. By default, hits sent from analytics.js are reported as web and hits sent from the mobile SDKs are reported as app.
+        tests:
+          - not_null
+      - name: ECOMMERCE_ACTION
+        description: This section contains all of the ecommerce hits that occurred during the session. This is a repeated field and has an entry for each hit that was collected.
+        tests:
+          - not_null
+      - name: EVENT_INFO
+        description: This section is populated for each hit with type = EVENT.
+      - name: EXCEPTION_INFO
+        description: This section is populated for each hit with type = EXCEPTION.
+      - name: EXPERIMENT
+        description: This row and the nested fields are populated for each hit that contains data for an experiment.
+      - name: HOUR
+        description: The hour in which the hit occurred. This value can be 0 to 23.
+        tests:
+          - not_null
+      - name: IS_ENTRANCE
+        description: If this hit was the first pageview or screenview hit of a session, this is set to true.
+      - name: IS_EXIT
+        description: If this hit was the last pageview or screenview hit of a session, this is set to true.
+      - name: IS_INTERACTION
+        description: If this hit was an interaction, this is set to true. If this was a non-interaction hit (i.e., an event with interaction set to false), this is false.
+        tests:
+          - not_null
+      - name: IS_SECURE
+        description: This field is deprecated.
+      - name: ITEM
+        description: This section will be populated for each hit with type = ITEM.
+      - name: LATENCY_TRACKING
+        description: This section contains information about events in the Navigation Timing API.
+      - name: MINUTE
+        description: The minute in which the hit occurred. this value can be from 0 to 59.
+        tests:
+          - not_null
+      - name: PAGE
+        description: This section is populated for each hit with type = PAGE.
+      - name: PRODUCT
+        description: This row and nested fields will be populated for each hit that contains Enhanced Ecommerce PRODUCT data.
+      - name: PROMOTION
+        description: This row and nested fields are populated for each hit that contains Enhanced Ecommerce PROMOTION information.
+      - name: PROMOTION_ACTION_INFO
+        description: This row and nested fields are populated for each hit that contains Enhanced Ecommerce PROMOTION action information.
+      - name: PUBLISHER
+        description: Details object about the publisher
+      - name: REFERER
+        description: The referring page, if the session has a goal completion or transaction. If this page is from the same domain, this is blank.
+      - name: REFUND
+        description: This row and nested fields are populated for each hit that contains Enhanced Ecommerce REFUND information.
+      - name: SOCIAL
+        description: This section is populated for each hit with type = SOCIAL.
+        tests:
+          - not_null
+      - name: SOURCE_PROPERTY_INFO
+        description: This section contains information about source property for rollup properties.
+      - name: TIME
+        description: The number of milliseconds after the visitStartTime when this hit was registered. The first hit has a hits.time of 0
+        tests:
+          - not_null
+      - name: TRANSACTION
+        description: This section is populated for each hit with type = TRANSACTION.
+      - name: TYPE
+        description: The type of hit.
