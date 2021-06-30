@@ -1,6 +1,7 @@
 # DBT Google Analytics 360
 
 DBT package for Google Analytics 360 data based on the ingestion schema from [Stitch data](https://www.stitchdata.com/docs/integrations/saas/google-analytics-360#schema).  
+This package is currently intended for Snowflake use, other databases to follow.  
 
 ## Installation
 1. Add the following to your `packages.yml` file  

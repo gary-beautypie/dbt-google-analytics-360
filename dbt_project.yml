@@ -3,13 +3,6 @@ version: '0.0.1'
 config-version: 2
 require-dbt-version: ">=0.18.0"
 
-vars:
-  google_analytics_database: RAW
-  google_analytics_sessions: SESSIONS
-  google_analytics_hits: HITS
-
-profile: "dbt_hub"
-
 source-paths: ["models"]
 analysis-paths: ["analysis"]
 target-path: "target"
