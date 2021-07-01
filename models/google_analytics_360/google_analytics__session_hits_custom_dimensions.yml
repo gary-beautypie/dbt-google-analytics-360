@@ -1,0 +1,17 @@
+version: 2
+
+models:
+  - name: google_analytics__session_hits_custom_dimensions
+    description: Flattened custom dimensions for Google Analytics session hits
+    columns:
+      - name: SESSION_HIT_ID
+        description: Hit identifier
+      - name: DIMENSION_INDEX
+        description: The index of the dimension as linked to Google Analytics
+      - name: DIMENSION_VALUE
+        description: The value for the custom dimension
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - SESSION_HIT_ID
+            - DIMENSION_INDEX

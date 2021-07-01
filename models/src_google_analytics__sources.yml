@@ -3,7 +3,7 @@ version: 2
 sources:
   - name: GOOGLE_ANALYTICS
     database: "{{ var('google_analytics_database', target.database) }}"
-    schema: "{{ var('google_analytics_schema', 'google_analytics') }}"
+    schema: "{{ var('google_analytics_schema', 'google_analytics_360') }}"
 
     loader: stitch
     loaded_at_field: _SDC_BATCHED_AT

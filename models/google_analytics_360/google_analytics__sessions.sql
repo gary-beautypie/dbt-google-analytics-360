@@ -6,13 +6,13 @@ WITH sessions AS (
 ),
 final AS (
   SELECT
+    SESSION_ID,
     FULL_VISITOR_ID,
     CLIENT_ID,
     VISIT_ID,
     USER_ID,
     VISIT_NUMBER,
     VISIT_START_TIME                                                    AS SESSION_START_TIME,
-    VISIT_START_AT                                                      AS SESSION_START_AT,
     CHANNEL_GROUPING,
     TOTALS['BOUNCES']::INT                                              AS TOTAL_BOUNCES,
     IFF(TOTALS['BOUNCES']::INT > 0, TRUE, FALSE)                        AS IS_SESSION_BOUNCE,
@@ -45,9 +45,9 @@ final AS (
     DEVICE['OPERATING_SYSTEM_VERSION']::STRING                          AS OPERATING_SYSTEM_VERSION,
     DEVICE['SCREEN_COLORS']::STRING                                     AS SCREEN_COLORS,
     DEVICE['SCREEN_RESOLUTION']::STRING                                 AS SCREEN_RESOLUTION,
-    GEONETWORK['CITY']::STRING                                          AS GEONETWORK_CITY,
-    GEONETWORK['CONTINENT']::STRING                                     AS GEONETWORK_CONTINENT,
-    GEONETWORK['COUNTRY']::STRING                                       AS GEONETWORK_COUNTRY
+    GEO_NETWORK['CITY']::STRING                                          AS GEONETWORK_CITY,
+    GEO_NETWORK['CONTINENT']::STRING                                     AS GEONETWORK_CONTINENT,
+    GEO_NETWORK['COUNTRY']::STRING                                       AS GEONETWORK_COUNTRY
   FROM
     sessions
 )

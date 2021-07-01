@@ -1,0 +1,21 @@
+WITH session_hits AS (
+  SELECT
+    *
+  FROM
+    {{ ref('stg_google_analytics__session_hits') }}
+),
+final AS (
+  SELECT
+    SESSION_HIT_ID,
+    FLATTENED_DIMENSIONS.KEY::INTEGER   AS DIMENSION_INDEX,
+    FLATTENED_DIMENSIONS.VALUE::VARCHAR AS DIMENSION_VALUE
+  FROM
+    session_hits,
+    LATERAL FLATTEN(INPUT => CUSTOM_DIMENSIONS,  recursive => true) FLATTENED_DIMENSIONS
+  WHERE
+    FLATTENED_DIMENSIONS.KEY IS NOT NULL
+)
+SELECT
+  *
+FROM
+  final

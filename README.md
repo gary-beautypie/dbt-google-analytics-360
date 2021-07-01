@@ -10,7 +10,7 @@ This package is currently intended for Snowflake use, other databases to follow.
   version: 0.1.0
 ```
 
-2. By default this will look into the `google_analytics` schema of your profile database.  
+2. By default this will look into the `google_analytics_360` schema of your profile database.  
 If this is not where your data is, please add the following to your `dbt_project.yml`:
 ```yml
 vars:

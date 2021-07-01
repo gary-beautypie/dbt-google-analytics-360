@@ -10,6 +10,11 @@ models:
       <a href="https://support.google.com/analytics/answer/2731565?hl=en">
       Google Definition - Session Docs</a>
     columns:
+      - name: SESSION_ID
+        description: Unique identifier for the session, constructed from the FULL_VISITOR_ID, VISIT_ID, and VISIT_START_TIME
+        tests:
+          - unique
+          - not_null
       - name: FULL_VISITOR_ID
         description: The unique visitor ID - also known as client ID.
         tests:
@@ -61,6 +66,15 @@ models:
       <a href="https://support.google.com/analytics/answer/6086082?hl=en">
       Google Definition - Hit Docs</a>
     columns:
+      - name: SESSION_HIT_ID
+        description: Unique identifier for the hit, constructed from the FULL_VISITOR_ID, VISIT_START_TIME, and HIT_NUMBER
+        tests:
+          - unique
+          - not_null
+      - name: SESSION_ID
+        description: Identifier for the session, constructed from the FULL_VISITOR_ID, VISIT_ID, and VISIT_START_TIME
+        tests:
+          - not_null
       - name: VISIT_ID
         description: An identifier for this session.
         tests:

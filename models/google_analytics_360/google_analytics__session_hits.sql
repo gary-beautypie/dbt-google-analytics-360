@@ -6,6 +6,8 @@ WITH session_hits AS (
 ),
 final AS (
   SELECT
+    SESSION_HIT_ID,
+    SESSION_ID,
     VISIT_ID,
     FULL_VISITOR_ID,
     VISIT_START_TIME,

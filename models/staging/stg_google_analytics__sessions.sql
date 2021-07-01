@@ -6,6 +6,7 @@ WITH base AS (
 ),
 final AS (
   SELECT
+    {{ dbt_utils.surrogate_key(['FULLVISITORID', 'VISITID', 'VISITSTARTTIME']) }} AS SESSION_ID,
     FULLVISITORID        AS FULL_VISITOR_ID,
     VISITID              AS VISIT_ID,
     VISITSTARTTIME       AS VISIT_START_TIME,

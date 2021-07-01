@@ -4,6 +4,15 @@ models:
   - name: google_analytics__session_hits
     description: Table for hit (event) level data from Google Analytics
     columns:
+      - name: SESSION_HIT_ID
+        description: Unique identifier for the hit, constructed from the FULL_VISITOR_ID, VISIT_START_TIME, and HIT_NUMBER
+        tests:
+          - unique
+          - not_null
+      - name: SESSION_ID
+        description: Identifier for the session, constructed from the FULL_VISITOR_ID, VISIT_ID, and VISIT_START_TIME
+        tests:
+          - not_null
       - name: VISIT_ID
         description: An identifier for this session. Can apply to multiple sessions that are split over midnight by Google Analytics logic
       - name: FULL_VISITOR_ID

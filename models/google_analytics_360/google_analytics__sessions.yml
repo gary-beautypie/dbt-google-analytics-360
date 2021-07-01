@@ -4,6 +4,11 @@ models:
   - name: google_analytics__sessions
     description: Table for session level data from Google Analytics
     columns:
+      - name: SESSION_ID
+        description: Identifier for the session, constructed from the FULL_VISITOR_ID, VISIT_ID, and VISIT_START_TIME
+        tests:
+          - not_null
+          - unique
       - name: FULL_VISITOR_ID
         description: The unique visitor ID
       - name: CLIENT_ID
@@ -16,8 +21,6 @@ models:
         description: The nth session for this visitor
       - name: SESSION_START_TIME
         description: The session start timestamp expressed as POSIX time
-      - name: SESSION_START_AT
-        description: The session start timestamp
       - name: CHANNEL_GROUPING
         description: The Default Channel Group associated with an end user’s session for this View
       - name: TOTAL_BOUNCES
