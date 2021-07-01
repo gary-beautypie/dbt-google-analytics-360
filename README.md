@@ -15,7 +15,7 @@ If this is not where your data is, please add the following to your `dbt_project
 ```yml
 vars:
   google_analytics_database: your_google_analytics_database
-  google_analytics_schema: your_oogle_analytics_schema
+  google_analytics_schema: your_google_analytics_schema
 ```
 
 3. (Optional) It's possible that your ingestion is run outside of Stitch and the table

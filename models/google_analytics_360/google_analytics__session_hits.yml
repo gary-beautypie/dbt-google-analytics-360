@@ -49,6 +49,8 @@ models:
         description:  This section will be populated for each hit with type = APPVIEW.
       - name: ECOMMERCE_ACTION_TYPE
         description: The action type setup in Google Analytics
+      - name: ECOMMERCE_ACTION_TYPE_DESCRIPTION
+        description: Descriptive name of the e-commerce action type as defined by Google Analytics
       - name: ECOMMERCE_ACTION_STEP
         description:  This field is populated when a checkout step is specified with the hit
       - name: EVENT_ACTION
@@ -78,10 +80,10 @@ models:
       - name: SEARCH_TERM_FOR_PAGE
         description: If this was a search results page, this is the keyword entered
       - name: TRANSACTION_ID
-        description: The transaction ID of the ecommerce transaction. Maps to the order ID in the HCL system
-      - name: PAGE_LOAD_TIME
+        description: The transaction ID of the ecommerce transaction.
+      - name: PAGE_LOAD_TIME_MILLIS
         description: Total time (in milliseconds), from pageview initiation (e.g., a click on a page link) to page load completion in the browser, the pages in the sample set take to load
-      - name: SERVER_RESPONSE_TIME
+      - name: SERVER_RESPONSE_TIME_MILLIS
         description: The total time (in milliseconds) the site's server takes to respond to users' requests among all samples; this includes the network time from users' locations to the server
-      - name: DOM_CONTENT_LOADED_TIME
+      - name: DOM_CONTENT_LOADED_TIME_MILLIS
         description: The time (in milliseconds), including the network time from users' locations to the site's server, the browser takes to parse the document and execute deferred and parser-inserted scripts (DOMContentLoaded)

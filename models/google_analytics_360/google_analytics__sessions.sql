@@ -45,9 +45,9 @@ final AS (
     DEVICE['OPERATING_SYSTEM_VERSION']::STRING                          AS OPERATING_SYSTEM_VERSION,
     DEVICE['SCREEN_COLORS']::STRING                                     AS SCREEN_COLORS,
     DEVICE['SCREEN_RESOLUTION']::STRING                                 AS SCREEN_RESOLUTION,
-    GEO_NETWORK['CITY']::STRING                                          AS GEONETWORK_CITY,
-    GEO_NETWORK['CONTINENT']::STRING                                     AS GEONETWORK_CONTINENT,
-    GEO_NETWORK['COUNTRY']::STRING                                       AS GEONETWORK_COUNTRY
+    GEO_NETWORK['CITY']::STRING                                         AS GEONETWORK_CITY,
+    GEO_NETWORK['CONTINENT']::STRING                                    AS GEONETWORK_CONTINENT,
+    GEO_NETWORK['COUNTRY']::STRING                                      AS GEONETWORK_COUNTRY
   FROM
     sessions
 )
